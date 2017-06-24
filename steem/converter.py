@@ -60,7 +60,7 @@ class Converter(object):
         vesting_shares = int(self.sp_to_vests(sp) * 1e6)
 
         # calculate vote rshares
-        power = (((voting_power * vote_pct) / 10000) / 200) + 1
+        power = (((voting_power * vote_pct) / 10000) / 50) + 1
         rshares = (power * vesting_shares) / 10000
 
         return rshares
