@@ -392,14 +392,14 @@ class Commit(object):
             .. note:: Account creations cost a fee that is defined by
                        the network. If you create an account, you will
                        need to pay for that fee!
-                       
+
                        **You can partially pay that fee by delegating VESTS.**
-                       
+
                        To pay the fee in full in STEEM, leave ``delegation_fee_steem`` set to ``0 STEEM`` (Default).
-                       
+
                        To pay the fee partially in STEEM, partially with delegated VESTS, set ``delegation_fee_steem``
                        to a value greater than ``1 STEEM``. `Required VESTS will be calculated automatically.`
-                       
+
                        To pay the fee with maximum amount of delegation, set ``delegation_fee_steem`` to ``1 STEEM``.
                        `Required VESTS will be calculated automatically.`
 
@@ -562,7 +562,13 @@ class Commit(object):
 
         return self.finalizeOp(op, creator, "active")
 
-    def transfer(self, to, amount, asset, memo="", account=None):
+    def transfers(self, transfers, account=None):
+        ops = []
+        for transfer in transfers:
+            ops.append(self.transfer(transfer['to'], transfer['amount'], transfer['asset'], memo=transfer['memo'], account=transfer['account'], finalize=False))
+        self.finalizeOp(ops, account, "active")
+
+    def transfer(self, to, amount, asset, memo="", account=None, finalize=True):
         """ Transfer SBD or STEEM to another account.
 
             :param str to: Recipient
@@ -604,7 +610,9 @@ class Commit(object):
                "memo": memo
                }
         )
-        return self.finalizeOp(op, account, "active")
+        if finalize:
+            return self.finalizeOp(op, account, "active")
+        return op
 
     def withdraw_vesting(self, amount, account=None):
         """ Withdraw VESTS from the vesting account.
@@ -812,7 +820,13 @@ class Commit(object):
         )
         return self.finalizeOp(op, account, "posting")
 
-    def delegate_vesting_shares(self, to_account: str, vesting_shares: str, account=None):
+    def delegations(self, delegations, account=None):
+        ops = []
+        for delegation in delegations:
+            ops.append(self.delegate_vesting_shares(delegation['to_account'], delegation['vesting_shares'], account=delegation['account'], finalize=False))
+        self.finalizeOp(ops, account, "active")
+
+    def delegate_vesting_shares(self, to_account: str, vesting_shares: str, account=None, finalize=True):
         """ Delegate SP to another account.
 
         Args:
@@ -832,7 +846,9 @@ class Commit(object):
                 "vesting_shares": str(Amount(vesting_shares)),
             }
         )
-        return self.finalizeOp(op, account, "active")
+        if finalize:
+            return self.finalizeOp(op, account, "active")
+        return op
 
     def witness_feed_publish(self, steem_usd_price, quote="1.000", account=None):
         """ Publish a feed price as a witness.
