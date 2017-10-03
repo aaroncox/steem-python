@@ -1184,7 +1184,7 @@ class Commit(object):
         """
         return self.approve_witness(witness=witness, account=account, approve=False)
 
-    def custom_json(self, id, json, required_auths=[], required_posting_auths=[]):
+    def custom_json(self, id, json, required_auths=[], required_posting_auths=[], finalize=True):
         """ Create a custom json operation
 
             :param str id: identifier for the custom json (max length 32 bytes)
@@ -1204,7 +1204,9 @@ class Commit(object):
                "required_auths": required_auths,
                "required_posting_auths": required_posting_auths,
                "id": id})
-        return self.finalizeOp(op, account, "posting")
+        if finalize:
+            return self.finalizeOp(op, account, "posting")
+        return op
 
     def resteem(self, identifier, account=None):
         """ Resteem a post
