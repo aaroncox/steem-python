@@ -805,7 +805,7 @@ class Commit(object):
 
         # if no values were set by user, claim all outstanding balances on account
         if none(int(first(x.split(' '))) for x in [reward_sbd, reward_steem, reward_vests]):
-            a = Account(account)
+            a = Account(account, steemd_instance=self.steemd)
             reward_steem = a['reward_steem_balance']
             reward_sbd = a['reward_sbd_balance']
             reward_vests = a['reward_vesting_balance']
