@@ -13,11 +13,11 @@ from setuptools import find_packages, setup, Command
 from setuptools.command.test import test as TestCommand
 
 # Package meta-data.
-NAME = 'steem'
-DESCRIPTION = 'Official python steem library.'
-URL = 'https://github.com/steemit/steem-python'
-EMAIL = 'john@steemit.com'
-AUTHOR = 'Steemit'
+NAME = 'hive'
+DESCRIPTION = 'A python hive library.'
+URL = 'https://github.com/pharesim/hive-python'
+EMAIL = 'pharesim@protonmail.com'
+AUTHOR = 'pharesim'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -133,7 +133,7 @@ setup(
     name=NAME,
     version='1.0.2',
     description=DESCRIPTION,
-    keywords=['steem', 'steemit', 'cryptocurrency', 'blockchain'],
+    keywords=['hive', 'cryptocurrency', 'blockchain'],
     # long_description=long_description,
     author=AUTHOR,
     author_email=EMAIL,
@@ -141,9 +141,9 @@ setup(
     packages=find_packages(exclude=('tests','scripts')),
     entry_points={
             'console_scripts': [
-                'piston=steem.cli:legacyentry',
-                'steempy=steem.cli:legacyentry',
-                'steemtail=steem.cli:steemtailentry',
+                'piston=hive.cli:legacyentry',
+                'hivepy=hive.cli:legacyentry',
+                'hivetail=hive.cli:hivetailentry',
             ],
     },
     install_requires=REQUIRED,

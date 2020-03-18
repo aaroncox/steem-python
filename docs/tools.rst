@@ -1,7 +1,7 @@
 Tools
 ~~~~~
 
-``steem-python`` comes with batteries included.
+``hive-python`` comes with batteries included.
 
 This page lists a collection of convenient tools at your disposal.
 
@@ -9,7 +9,7 @@ This page lists a collection of convenient tools at your disposal.
 Account
 =======
 
-.. autoclass:: steem.account.Account
+.. autoclass:: hive.account.Account
    :members:
 
 --------
@@ -17,7 +17,7 @@ Account
 Amount
 ======
 
-.. autoclass:: steem.amount.Amount
+.. autoclass:: hive.amount.Amount
    :members:
 
 --------
@@ -25,7 +25,7 @@ Amount
 Blockchain
 ==========
 
-.. autoclass:: steem.blockchain.Blockchain
+.. autoclass:: hive.blockchain.Blockchain
    :members:
 
 --------
@@ -33,7 +33,7 @@ Blockchain
 Blog
 ====
 
-.. autoclass:: steem.blog.Blog
+.. autoclass:: hive.blog.Blog
    :members:
 
 --------
@@ -41,7 +41,7 @@ Blog
 Converter
 =========
 
-.. autoclass:: steem.converter.Converter
+.. autoclass:: hive.converter.Converter
    :members:
 
 --------
@@ -49,7 +49,7 @@ Converter
 Dex
 ===
 
-.. autoclass:: steem.dex.Dex
+.. autoclass:: hive.dex.Dex
    :members:
 
 --------
@@ -57,17 +57,17 @@ Dex
 Post
 ====
 
-.. autoclass:: steem.post.Post
+.. autoclass:: hive.post.Post
    :members:
 
 --------
 
 
 
-steem.utils
+hive.utils
 ===========
 
-.. automodule:: steem.utils
+.. automodule:: hive.utils
    :members:
 
 --------

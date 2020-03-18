@@ -10,18 +10,18 @@ A fast ``urllib3`` based HTTP client that features:
 * Concurrent Processing
 * Automatic Node Failover
 
-The functionality of ``HttpClient`` is encapsulated by ``Steem`` class. You shouldn't be using ``HttpClient`` directly,
+The functionality of ``HttpClient`` is encapsulated by ``Hive`` class. You shouldn't be using ``HttpClient`` directly,
 unless you know exactly what you're doing.
 
-.. autoclass:: steembase.http_client.HttpClient
+.. autoclass:: hivebase.http_client.HttpClient
    :members:
 
 -------------
 
-steembase
+hivebase
 ---------
 
-SteemBase contains various primitives for building higher level abstractions.
+HiveBase contains various primitives for building higher level abstractions.
 This module should only be used by library developers or people with deep domain knowledge.
 
 **Warning:**
@@ -32,7 +32,7 @@ Not all methods are documented. Please see source.
 Account
 =======
 
-.. automodule:: steembase.account
+.. automodule:: hivebase.account
    :members:
 
 --------
@@ -40,7 +40,7 @@ Account
 Base58
 ======
 
-.. automodule:: steembase.base58
+.. automodule:: hivebase.base58
    :members:
 
 --------
@@ -48,7 +48,7 @@ Base58
 Bip38
 =====
 
-.. automodule:: steembase.bip38
+.. automodule:: hivebase.bip38
    :members:
 
 
@@ -57,7 +57,7 @@ Bip38
 Memo
 ====
 
-.. automodule:: steembase.memo
+.. automodule::hivebase.memo
    :members:
 
 
@@ -66,7 +66,7 @@ Memo
 Operations
 ==========
 
-.. automodule:: steembase.operations
+.. automodule:: hivebase.operations
    :members:
 
 
@@ -75,7 +75,7 @@ Operations
 Transactions
 ============
 
-.. automodule:: steembase.transactions
+.. automodule:: hivebase.transactions
    :members:
 
 
@@ -85,7 +85,7 @@ Transactions
 Types
 =====
 
-.. automodule:: steembase.types
+.. automodule:: hivebase.types
    :members:
 
 --------
@@ -93,5 +93,5 @@ Types
 Exceptions
 ==========
 
-.. automodule:: steembase.exceptions
+.. automodule:: hivebase.exceptions
    :members:

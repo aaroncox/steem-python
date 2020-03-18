@@ -2,7 +2,7 @@
 
 
 
-### Version of steem-python you are running ###
+### Version of hive-python you are running ###
 
 
 
@@ -19,4 +19,3 @@
 
 
 ### Stack Trace ###
-

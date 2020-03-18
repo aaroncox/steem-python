@@ -4,7 +4,7 @@ from pprint import pprint
 
 from funcy.colls import where, pluck
 from funcy.seqs import first, distinct, flatten
-from steem import Steem
+from hive import Hive
 
 # todo
 # "get_expiring_vesting_delegations": [('author', 'str'), ('from_time', 'object'), ('limit', 'int')],  # ?
@@ -528,8 +528,8 @@ def {method_name}(self{method_arguments}){return_hints}:
 """
 
 
-def steemd_codegen():
-    """ Generates Python methods from steemd JSON API spec. Prints to stdout. """
+def hived_codegen():
+    """ Generates Python methods from hived JSON API spec. Prints to stdout. """
     for endpoint in api_methods:
         method_arg_mapper = partial(map, lambda x: ', %s: %s' % (x[0], x[1]))
         call_arg_mapper = partial(map, lambda x: ', %s' % x[0])
@@ -559,15 +559,15 @@ def find_api(method_name):
         return endpoint.get('api')
 
 
-def inspect_steemd_implementation():
-    """ Compare implemented methods with current live deployment of steemd. """
+def inspect_hived_implementation():
+    """ Compare implemented methods with current live deployment of hived. """
     _apis = distinct(pluck('api', api_methods))
     _methods = set(pluck('method', api_methods))
 
     avail_methods = []
-    s = Steem(re_raise=False)
+    h = Hive(re_raise=False)
     for api in _apis:
-        err = s.exec('nonexistentmethodcall', api=api)
+        err = h.exec('nonexistentmethodcall', api=api)
         [
             avail_methods.append(x)
             for x in err['data']['stack'][0]['data']['api'].keys()
@@ -583,5 +583,5 @@ def inspect_steemd_implementation():
 
 
 if __name__ == '__main__':
-    steemd_codegen()
-    inspect_steemd_implementation()
+    hived_codegen()
+    inspect_hived_implementation()

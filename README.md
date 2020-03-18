@@ -1,7 +1,7 @@
-# Official Python STEEM Library
+# Official Python Hive Library
 
-`steem-python` is the official Steem library for Python. It comes with a
-BIP38 encrypted wallet and a practical CLI utility called `steempy`.
+`hive-python` is a Hive library for Python. It comes with a
+BIP38 encrypted wallet and a practical CLI utility called `hivepy`.
 
 This library currently works on Python 2.7, 3.5 and 3.6. Python 3.3 and 3.4 support forthcoming.
 
@@ -10,14 +10,14 @@ This library currently works on Python 2.7, 3.5 and 3.6. Python 3.3 and 3.4 supp
 With pip:
 
 ```
-pip3 install steem      # pip install steem for 2.7
+pip3 install hive      # pip install hive for 2.7
 ```
 
 From Source:
 
 ```
-git clone https://github.com/steemit/steem-python.git
-cd steem-python
+git clone https://github.com/pharesim/hive-python.git
+cd hive-python
 python3 setup.py install        # python setup.py install for 2.7
 ```
 
@@ -35,14 +35,14 @@ export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
 
 The library comes with a few console scripts.
 
-* `steempy`:
+* `hivepy`:
     * rudimentary blockchain CLI (needs some TLC and more TLAs)
-* `steemtail`:
-    * useful for e.g. `steemtail -f -j | jq --unbuffered --sort-keys .`
+* `hivetail`:
+    * useful for e.g. `hivetail -f -j | jq --unbuffered --sort-keys .`
 
 # Documentation
 
-Documentation is available at **http://steem.readthedocs.io**
+Documentation is available at **http://hive.readthedocs.io**
 
 # Tests
 
