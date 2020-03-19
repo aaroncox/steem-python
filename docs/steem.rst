@@ -152,7 +152,7 @@ and shall contain no whitespaces.
         +---------------------+----------------------------------------------------------+
         | Key                 | Value                                                    |
         +---------------------+----------------------------------------------------------+
-        | nodes               | https://api.hive.blog,https://api.hive.network  |
+        | nodes               | https://api.hive.blog,https://api.hive.network           |
         | default_vote_weight | 100                                                      |
         | default_account     | furion                                                   |
         +---------------------+----------------------------------------------------------+
