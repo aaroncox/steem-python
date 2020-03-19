@@ -5,7 +5,7 @@
     [
       "transfer_to_savings",
       {
-        "amount": "1000.000 SBD",
+        "amount": "1000.000 HBD",
         "to": "jamesc",
         "memo": "",
         "from": "jamesc"

@@ -1,16 +1,16 @@
-from steem.steemd import Steemd
-from steem.commit import Commit
-from steembase.exceptions import RPCError
+from hive.hived import Hived
+from hive.commit import Commit
+from hivebase.exceptions import RPCError
 
 
 def test_transfer():
     wif = '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'
-    c = Commit(steemd_instance=Steemd(nodes=[]),
+    c = Commit(hived_instance=Hived(nodes=[]),
                keys=[wif])
 
     rpc_error = None
     try:
-        c.transfer('test2', '1.000', 'STEEM', 'foo', 'test')
+        c.transfer('test2', '1.000', 'HIVE', 'foo', 'test')
     except RPCError as e:
         rpc_error = str(e)
     else:
@@ -21,16 +21,16 @@ def test_transfer():
 
 def test_claim_reward():
     wif = '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'
-    c = Commit(steemd_instance=Steemd(nodes=[]),
+    c = Commit(hived_instance=Hived(nodes=[]),
                keys=[wif])
 
     rpc_error = None
     try:
         c.claim_reward_balance(
             account='test',
-            reward_steem='1.000 STEEM',
+            reward_hive='1.000 HIVE',
             reward_vests='0.000000 VESTS',
-            reward_sbd='0.000 SBD')
+            reward_hbd='0.000 HBD')
     except RPCError as e:
         rpc_error = str(e)
     else:
@@ -41,14 +41,14 @@ def test_claim_reward():
 
 def test_witness_update():
     wif = '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'
-    c = Commit(steemd_instance=Steemd(nodes=[]),
+    c = Commit(hived_instance=Hived(nodes=[]),
                keys=[wif])
 
     signing_key = 'STM1111111111111111111111111111111114T1Anm'
     props = {
-        'account_creation_fee': '0.500 STEEM',
+        'account_creation_fee': '0.500 HIVE',
         'maximum_block_size': 65536,
-        'sbd_interest_rate': 0}
+        'hbd_interest_rate': 0}
 
     rpc_error = None
     try:
@@ -67,7 +67,7 @@ def test_witness_update():
 
 def test_witness_set_properties():
     wif = '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'
-    c = Commit(steemd_instance=Steemd(nodes=[]),
+    c = Commit(hived_instance=Hived(nodes=[]),
                keys=[wif])
 
     signing_key = 'STM1111111111111111111111111111111114T1Anm'

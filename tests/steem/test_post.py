@@ -1,9 +1,9 @@
-from steem.post import Post
+from hive.post import Post
 
 
 def test_post_refresh():
     """ Post should load correctly if passed a dict or string identifier. """
-    p1 = Post('https://steemit.com/marketing/@steemitblog/'
+    p1 = Post('https://hive.blog/marketing/@steemitblog/'
               'marketing-w-mitchell-a-steem-ecosystem')
     p2 = Post({
         'author': 'steemitblog',

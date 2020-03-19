@@ -1,4 +1,4 @@
-from steem.account import Account
+from hive.account import Account
 
 
 def test_history():
